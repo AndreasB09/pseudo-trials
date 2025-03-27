@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo Trials</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        /* Glowing */
+        .glowing-border {
+            position: relative;
+            padding: 30px;
+            background: white;
+            width: 200px;
+            height: 100px;
+            margin-top: 5rem;
+        }
+
+        .glowing-border::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, 
+            #ff6b6b,
+            #4ecdc4,
+            #45b7d1,
+            #f9d56e,
+            #ff6b6b);
+            filter: blur(10px);
+            background-size: 400% 400%;
+            animation: rotating-glow 5s ease infinite;
+        }
+
+        .glowing-border::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            /* margin: 5px; */
+        }
+
+        @keyframes rotating-glow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Glitch */
+        .glitch-border {
+            position: relative;
+            padding: 30px;
+            background: white;
+            width: 200px;
+            height: 100px;
+            margin-top: 5rem;
+            /* overflow: hidden; */
+            border: 1px solid transparent;
+        }
+
+        .glitch-border::before,
+        .glitch-border::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg,
+            #96ffff,
+            #ffc7c0,
+            #f8efa9);
+            background-size: 400% 400%;
+            animation: glitch 1s linear infinite;
+            z-index: -1;
+        }
+
+        .glitch-border::after {
+            animation-delay: -1s;
+            opacity: 0.5;
+        }
+
+        @keyframes glitch {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Rotating */
+        .rotating-border {
+            position: relative;
+            padding: 30px;
+            background: white;
+            width: 200px;
+            height: 100px;
+            margin-top: 5rem;
+            overflow: hidden;
+        }
+
+        .rotating-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 5px solid transparent;
+            background-origin: border-box;
+            background-clip: border-box;
+            background: linear-gradient(45deg,
+            #0e658d,
+            #9b2464,
+            #f89634);
+            background-size: 400% 400%;
+            animation: rotating 5s linear infinite;
+        }
+
+        .rotating-border::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            background: white;
+            z-index: 1;
+        }
+
+        @keyframes rotating {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="glowing-border"></div>
+    <div class="glitch-border"></div>
+    <div class="rotating-border"></div>
+</body>
+</html>
+
+<!-- 
+#0e658d
+#9b2464
+#f89634
+-->
