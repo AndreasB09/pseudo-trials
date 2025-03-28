@@ -16,10 +16,9 @@
         /* Glowing */
         .glowing-border {
             position: relative;
-            padding: 30px;
             background: white;
-            width: 200px;
-            height: 100px;
+            width: 260px;
+            height: 160px;
             margin-top: 5rem;
         }
 
@@ -67,10 +66,9 @@
         /* Glitch */
         .glitch-border {
             position: relative;
-            padding: 30px;
             background: white;
-            width: 200px;
-            height: 100px;
+            width: 260px;
+            height: 160px;
             margin-top: 5rem;
             /* overflow: hidden; */
             border: 1px solid transparent;
@@ -113,10 +111,9 @@
         /* Rotating */
         .rotating-border {
             position: relative;
-            padding: 30px;
             background: white;
-            width: 200px;
-            height: 100px;
+            width: 260px;
+            height: 160px;
             margin-top: 5rem;
             overflow: hidden;
         }
@@ -162,12 +159,73 @@
             }
         }
 
+        /* image */
+        .image-container {
+            position: relative;
+            width: 260px;
+            height: 160px;
+            margin-top: 5rem;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 250px;
+            height: 150px;
+            object-fit: cover;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+        }
+
+        .image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg,
+            #0e658d,
+            #4a96c9,
+            #96ffff);
+            background-size: 400% 400%;
+            animation: image-border 5s ease infinite;
+            z-index: -1;
+            filter: blur(5px);
+        }
+
+        .image-container::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            background: white;
+            z-index: -1;
+        }
+
+        @keyframes image-border {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        } 
+
     </style>
 </head>
 <body>
     <div class="glowing-border"></div>
     <div class="glitch-border"></div>
     <div class="rotating-border"></div>
+    <div class="image-container">
+        <img src="nightwater.jpg" alt="Moonlit shore">
+    </div>
 </body>
 </html>
 
